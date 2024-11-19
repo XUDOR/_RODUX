@@ -1,38 +1,84 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure body fills the full viewport height */
 }
 
 header, footer {
-  background-color: #333;
+  background-color: #0F0D02;
   color: #fff;
-  text-align: center;
+  text-align: left;
   padding: 1rem;
 }
+
+.title {
+  font-size: 2em;
+  font-weight: lighter;
+}
+
 
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex: 1; /* Pushes footer to the bottom */
 }
 
 .sidebar {
-  background-color: #f4f4f4;
+  background-color: red;
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* Profile, NAV, Grid */
+  gap: 1rem;
   padding: 1rem;
   flex: 1 1 20%;
   min-width: 200px;
 }
 
-main {
-  flex: 1 1 80%;
+/* Profile Section */
+.sidebar .profile {
+  background-color: #fff;
+  color: #000;
   padding: 1rem;
+  border-radius: 4px;
+  text-align: left;
 }
 
-footer {
-  margin-top: auto;
+/* Navigation Menu */
+.sidebar .NAV {
+  background-color: aqua;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Grid Container for Squares */
+.sidebar .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Create responsive grid */
+  gap: 0.5rem; /* Spacing between squares */
+  background-color: #f4f4f4;
+  padding: 0.5rem;
+  border-radius: 4px;
+  flex-grow: 1; /* Fill remaining space */
+}
+
+/* Grid Items (Squares) */
+.sidebar .grid-item {
+  background-color: #333;
+  aspect-ratio: 1; /* Maintain square shape */
+  border-radius: 4px;
+}
+
+
+
+main {
+  flex: 1 1 90%;
+  padding: 1rem;
 }
 
 /* Sidebar navigation */
@@ -53,6 +99,21 @@ footer {
 .sidebar a:hover {
   text-decoration: underline;
 }
+
+/* Sticky Footer */
+footer {
+  margin-top: auto;
+}
+
+.footerTag {
+
+  font-size: .9em;
+  text-align: right;
+  padding: 5px;
+  margin-right: 20px;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
