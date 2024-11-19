@@ -11,6 +11,7 @@ body {
   /* Ensure body fills the full viewport height */
 
   /* New Background Settings */
+  background-color: #0F0D02;
   background-image: url('./assets/RODUX_23SM.png');
   background-size: cover; /* Stretches and maintains aspect ratio */
   background-repeat: no-repeat; /* Prevent tiling */
@@ -170,7 +171,7 @@ footer {
 
 
 
-/* Responsive Design */
+/* Mobile Styles */
 @media (max-width: 768px) {
   .container {
     flex-direction: column; /* Stack sidebar and main content */
@@ -178,49 +179,61 @@ footer {
 
   .sidebar {
     flex: 1 1 100%; /* Sidebar takes full width */
-    order: 1; /* Ensure sidebar appears before main content */
+    order: 1; /* Sidebar appears before main content */
   }
 
   main {
-    flex: 1 1 100%; /* Main content also takes full width */
+    flex: 1 1 100%; /* Main content takes full width */
     order: 2;
   }
 
-  .sidebar .profile {
-    flex-direction: column; /* Stack socialNAV and SocialTag */
-    text-align: center; /* Center-align text for smaller screens */
-    padding: 1rem; /* Add padding for better spacing */
-    background-color: rgba(15, 13, 2, 0.8); /* Semi-transparent background to improve visibility */
-    height: 100px;
-  }
-
-
-  .sidebar .NAV
-{
-  height: 300px;
-
+  /* Reduce spacing between socialNAV and SocialTag */
+.sidebar .profile {
+  flex-direction: row; /* Display socialNAV and SocialTag in a row */
+  justify-content: space-between; /* Distribute them horizontally */
+  align-items: center; /* Vertically center the content */
+  padding: 0.5rem; /* Reduce vertical padding */
 }
 
-  .sidebar .socialNAV, 
-  .sidebar .SocialTag {
-    margin: 0.5rem 0; /* Add spacing between elements */
-    width: 100%; /* Make them full width for better stacking */
-    
-  }
+.sidebar .profile .socialNAV,
+.sidebar .profile .SocialTag {
+  flex: 1; /* Allow both to grow proportionally */
+  font-size: 0.8rem; /* Slightly reduce the font size */
+  padding: 0.3rem 0.5rem; /* Reduce internal padding */
+}
+
+/* Adjust the nav link styles */
+.sidebar .NAV a {
+  display: block; /* Make the links appear as blocks */
+  padding: 0.5rem 0; /* Add some vertical padding */
+}
 
   .sidebar .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust square sizes for smaller screens */
-    gap: 0.5rem; /* Reduce spacing to fit better on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid for smaller screens */
+    gap: 0.5rem; /* Reduced gap for better fitting */
   }
 
   .sidebar .grid-item {
     border: 1px solid #92937D;
-    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent for better contrast */
+    background-color: rgba(51, 51, 51, 0.8); /* Darker background for better contrast */
+  }
+
+  /* Adjust background image size for mobile */
+  body {
+    background-size: cover;
+    background-position: center; /* Ensure it's centered */
+    background-attachment: fixed; /* Prevent image from scrolling */
   }
 
   header, footer {
     text-align: center; /* Center-align header/footer content */
   }
+
+  .sidebar .profile .socialNAV, 
+  .sidebar .profile .SocialTag {
+    width: 100%; /* Make the profile sections full-width */
+  }
 }
+
 
 
