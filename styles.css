@@ -7,10 +7,12 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure body fills the full viewport height */
+  min-height: 100vh;
+  /* Ensure body fills the full viewport height */
 }
 
-header, footer {
+header,
+footer {
   background-color: #0F0D02;
   color: #fff;
   text-align: left;
@@ -27,51 +29,72 @@ header, footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex: 1; /* Pushes footer to the bottom */
+  flex: 1;
+  /* Pushes footer to the bottom */
 }
 
 .sidebar {
   background-color: red;
   display: grid;
-  grid-template-rows: auto auto 1fr; /* Profile, NAV, Grid */
+  /* Use CSS Grid */
+  grid-template-columns: auto 1fr;
+  /* Two columns: NAV and grid-container */
   gap: 1rem;
   padding: 1rem;
   flex: 1 1 20%;
   min-width: 200px;
 }
 
-/* Profile Section */
-.sidebar .profile {
-  background-color: #fff;
-  color: #000;
-  padding: 1rem;
-  border-radius: 4px;
-  text-align: left;
-}
-
-/* Navigation Menu */
+/* Navigation Menu (Left Column) */
 .sidebar .NAV {
   background-color: aqua;
   padding: 1rem;
   border-radius: 4px;
+  grid-column: 1;
+  /* Ensure it stays in the first column */
 }
 
-/* Grid Container for Squares */
+/* Grid Container for Squares (Right Column) */
 .sidebar .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Create responsive grid */
-  gap: 0.5rem; /* Spacing between squares */
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  /* Create responsive grid */
+  gap: 0.5rem;
+  /* Spacing between squares */
   background-color: #f4f4f4;
   padding: 0.5rem;
   border-radius: 4px;
-  flex-grow: 1; /* Fill remaining space */
+  grid-column: 2;
+  /* Ensure it stays in the second column */
 }
 
 /* Grid Items (Squares) */
 .sidebar .grid-item {
   background-color: #333;
-  aspect-ratio: 1; /* Maintain square shape */
+  aspect-ratio: 1;
+  /* Maintain square shape */
   border-radius: 4px;
+}
+
+/* Profile Section (Optional, if needed above NAV and grid-container) */
+.sidebar .profile {
+  grid-column: span 2; /* Still spans both columns */
+  background-color: #fff;
+  color: #000;
+  padding: 0.5rem; /* Reduce padding */
+  border-radius: 4px;
+  font-size: 0.9rem; /* Slightly smaller font */
+  text-align: left;
+  line-height: 1.2; /* Compact the line height */
+  
+}
+
+.socialNAV {
+  background-color: gold;
+}
+
+.SocialTag {
+  background-color: olive;
 }
 
 
@@ -118,12 +141,14 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-      flex-direction: column;
+    flex-direction: column;
   }
+
   .sidebar {
-      flex: 1 1 100%;
+    flex: 1 1 100%;
   }
+
   main {
-      flex: 1 1 100%;
+    flex: 1 1 100%;
   }
 }
