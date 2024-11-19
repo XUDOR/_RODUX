@@ -108,7 +108,7 @@ footer {
   border-radius: 4px;
   font-size: 0.9rem;
   line-height: 1.2;
-  height: auto; /* Keep it dynamic */
+  height: 100px; /* Keep it dynamic */
 }
 
 .socialNAV {
@@ -188,29 +188,38 @@ footer {
   }
 
   /* Reduce spacing between socialNAV and SocialTag */
-.sidebar .profile {
-  flex-direction: row; /* Display socialNAV and SocialTag in a row */
-  justify-content: space-between; /* Distribute them horizontally */
-  align-items: center; /* Vertically center the content */
-  padding: 0.5rem; /* Reduce vertical padding */
+  .sidebar .profile {
+    flex-direction: row; /* Display socialNAV and SocialTag in a row */
+    justify-content: space-between; /* Distribute them horizontally */
+    align-items: center; /* Vertically center the content */
+    padding: 0.25rem; /* Reduce vertical padding to tighten space */
+    margin-bottom: 0; /* Remove margin below the profile section */
+  }
+
+  .sidebar .profile .socialNAV,
+  .sidebar .profile .SocialTag {
+    flex: 1; /* Allow both to grow proportionally */
+    font-size: 0.8rem; /* Slightly reduce the font size */
+    padding: 0.2rem 0.4rem; /* Reduce internal padding */
+    margin-right: 0; /* Remove right margin to tighten space between socialNAV and SocialTag */
+  }
+
+  /* Adjust the nav link styles */
+
+.sidebar .NAV {
+  height: 200px;
 }
 
-.sidebar .profile .socialNAV,
-.sidebar .profile .SocialTag {
-  flex: 1; /* Allow both to grow proportionally */
-  font-size: 0.8rem; /* Slightly reduce the font size */
-  padding: 0.3rem 0.5rem; /* Reduce internal padding */
-}
-
-/* Adjust the nav link styles */
-.sidebar .NAV a {
-  display: block; /* Make the links appear as blocks */
-  padding: 0.5rem 0; /* Add some vertical padding */
-}
+  .sidebar .NAV a {
+    display: block; /* Make the links appear as blocks */
+    padding: 0.5rem 0; /* Add some vertical padding */
+    
+  }
 
   .sidebar .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid for smaller screens */
     gap: 0.5rem; /* Reduced gap for better fitting */
+    order: 1;
   }
 
   .sidebar .grid-item {
@@ -234,6 +243,7 @@ footer {
     width: 100%; /* Make the profile sections full-width */
   }
 }
+
 
 
 
