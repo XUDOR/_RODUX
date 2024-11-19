@@ -12,10 +12,11 @@ body {
 
   /* New Background Settings */
   background-image: url('./assets/RODUX_23SM.png');
-  background-size: cover;       /* Ensure the image covers the entire background */
-  background-repeat: no-repeat; /* Avoid tiling */
-  background-position: center;  /* Center the image */
+  background-size: cover; /* Stretches and maintains aspect ratio */
+  background-repeat: no-repeat; /* Prevent tiling */
+  background-position: center top; /* Ensure image focuses on the top-center */
 }
+
 
 
 header,
@@ -128,7 +129,19 @@ footer {
 main {
   flex: 1 1 90%;
   padding: 1rem;
+  color: #FCFBF2
 }
+
+.MainTitle {
+  font-size: 1em;
+  font-weight: normal;
+  color: #BCBAB1;
+  border-right: 1px solid #BCBAB1;
+  width: 100px;
+  height: 50px;
+
+}
+
 
 /* Sidebar navigation */
 .sidebar ul {
@@ -160,14 +173,54 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column; /* Stack sidebar and main content */
   }
 
   .sidebar {
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* Sidebar takes full width */
+    order: 1; /* Ensure sidebar appears before main content */
   }
 
   main {
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* Main content also takes full width */
+    order: 2;
+  }
+
+  .sidebar .profile {
+    flex-direction: column; /* Stack socialNAV and SocialTag */
+    text-align: center; /* Center-align text for smaller screens */
+    padding: 1rem; /* Add padding for better spacing */
+    background-color: rgba(15, 13, 2, 0.8); /* Semi-transparent background to improve visibility */
+    height: 100px;
+  }
+
+
+  .sidebar .NAV
+{
+  height: 300px;
+
+}
+
+  .sidebar .socialNAV, 
+  .sidebar .SocialTag {
+    margin: 0.5rem 0; /* Add spacing between elements */
+    width: 100%; /* Make them full width for better stacking */
+    
+  }
+
+  .sidebar .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust square sizes for smaller screens */
+    gap: 0.5rem; /* Reduce spacing to fit better on smaller screens */
+  }
+
+  .sidebar .grid-item {
+    border: 1px solid #92937D;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent for better contrast */
+  }
+
+  header, footer {
+    text-align: center; /* Center-align header/footer content */
   }
 }
+
+
