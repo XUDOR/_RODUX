@@ -9,14 +9,22 @@ body {
   flex-direction: column;
   min-height: 100vh;
   /* Ensure body fills the full viewport height */
+
+  /* New Background Settings */
+  background-image: url('./assets/RODUX_23SM.png');
+  background-size: cover;       /* Ensure the image covers the entire background */
+  background-repeat: no-repeat; /* Avoid tiling */
+  background-position: center;  /* Center the image */
 }
+
 
 header,
 footer {
   background-color: #0F0D02;
-  color: #fff;
+  color: #FCFBF2;
   text-align: left;
   padding: 1rem;
+  border-bottom: 1px solid #f4f4f4;
 }
 
 .title {
@@ -34,7 +42,7 @@ footer {
 }
 
 .sidebar {
-  background-color: red;
+  background-color: transparent;
   display: grid;
   /* Use CSS Grid */
   grid-template-columns: auto 1fr;
@@ -45,59 +53,77 @@ footer {
   min-width: 200px;
 }
 
+
 /* Navigation Menu (Left Column) */
 .sidebar .NAV {
-  background-color: aqua;
+  background-color: transparent;
+  color: #FCFBF2; /* Default text color (white) */
+  border: 1px solid #92937D;
   padding: 1rem;
-  border-radius: 4px;
   grid-column: 1;
-  /* Ensure it stays in the first column */
 }
 
-/* Grid Container for Squares (Right Column) */
+/* Target the links inside .NAV */
+.sidebar .NAV a {
+  color: #FCFBF2; /* White text */
+  text-decoration: none; /* Remove underline for links */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.sidebar .NAV a:hover {
+  color: #87CEEB; /* Light blue for hover */
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+
+
+/* Update Grid Container for Larger Squares */
 .sidebar .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  /* Create responsive grid */
-  gap: 0.5rem;
-  /* Spacing between squares */
-  background-color: #f4f4f4;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Double the min size */
+  gap: 1rem; /* Increase spacing between squares */
+  background-color: transparent;
   padding: 0.5rem;
-  border-radius: 4px;
-  grid-column: 2;
-  /* Ensure it stays in the second column */
+ 
+  grid-column: span 2;
 }
 
-/* Grid Items (Squares) */
 .sidebar .grid-item {
-  background-color: #333;
-  aspect-ratio: 1;
-  /* Maintain square shape */
-  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #92937D;
+  aspect-ratio: 1; /* Maintain square shape */
+ 
 }
 
-/* Profile Section (Optional, if needed above NAV and grid-container) */
 .sidebar .profile {
-  grid-column: span 2; /* Still spans both columns */
-  background-color: #fff;
-  color: #000;
-  padding: 0.5rem; /* Reduce padding */
+  grid-column: span 2; /* Spans both columns */
+  display: flex; /* To align socialNAV and SocialTag as a row */
+  justify-content: space-between; /* Spread them out horizontally */
+  align-items: center; /* Align items vertically in the center */
+  background-color: transparent;
+  color: #FCFBF2;
+  padding: 5px; /* Reduce vertical padding for a thinner profile */
   border-radius: 4px;
-  font-size: 0.9rem; /* Slightly smaller font */
-  text-align: left;
-  line-height: 1.2; /* Compact the line height */
-  
+  font-size: 0.9rem;
+  line-height: 1.2;
+  height: auto; /* Keep it dynamic */
 }
 
 .socialNAV {
-  background-color: gold;
+  border: 1px solid #FCFBF2;
+  background-color: #0F0D02;
 }
 
 .SocialTag {
-  background-color: olive;
+  border: 1px solid #FCFBF2;
+  background-color: #0F0D02;
+  width: 50px;
 }
 
-
+.socialNAV, .SocialTag {
+  flex: 1; /* Allow both items to grow proportionally */
+  text-align: center; /* Center-align their text */
+}
 
 main {
   flex: 1 1 90%;
@@ -114,14 +140,7 @@ main {
   margin: 0.5rem 0;
 }
 
-.sidebar a {
-  text-decoration: none;
-  color: #333;
-}
 
-.sidebar a:hover {
-  text-decoration: underline;
-}
 
 /* Sticky Footer */
 footer {
